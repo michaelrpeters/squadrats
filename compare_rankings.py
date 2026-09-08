@@ -1,19 +1,16 @@
 import os
 import glob
 import csv
+import shutil
 from datetime import datetime
 
 def parse_stat(val):
-    """Parses tile counts and squares (e.g., '13 × 13' becomes 13)."""
     if not isinstance(val, str) or val in ['N/A', '0', '', None]:
         return None
-    
-    # If it's a square like '13 × 13', we just grab the first number
     if '×' in val:
         val = val.split('×')[0]
     elif 'x' in val.lower():
         val = val.lower().split('x')[0]
-        
     cleaned = val.replace(',', '').strip()
     try:
         return int(float(cleaned))
@@ -21,7 +18,6 @@ def parse_stat(val):
         return None
 
 def parse_number(val):
-    """Converts strings like '#6,393' to raw integers."""
     if not isinstance(val, str) or val in ['N/A', '0', '', None]:
         return None
     cleaned = val.replace('#', '').replace(',', '').strip()
@@ -33,7 +29,7 @@ def parse_number(val):
 def compare_rankings():
     # --- 1. FIND THE TWO MOST RECENT FILES ---
     files = glob.glob("squadrats_rankings_*.csv")
-    files.sort(key=os.path.getmtime, reverse=True)
+    files.sort(reverse=True)
     
     if len(files) < 2:
         print("Not enough data! Run the scraper at least twice to compare.")
@@ -42,7 +38,6 @@ def compare_rankings():
     new_file = files[0]
     old_file = files[1]
 
-    # Start building our log output
     run_timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_lines = []
     log_lines.append("==================================================")
@@ -80,19 +75,17 @@ def compare_rankings():
                 new_count_str = new_row.get(count_key, '0')
                 old_count_str = old_row.get(count_key, '0')
                 
-                # --- CHECK A: Did you physically collect more tiles? ---
                 new_count_val = parse_stat(new_count_str)
                 old_count_val = parse_stat(old_count_str)
                 
                 if new_count_val is not None and old_count_val is not None:
                     if new_count_val > old_count_val:
                         gained = new_count_val - old_count_val
-                        if '×' in new_count_str:
+                        if '×' in new_count_str or 'x' in new_count_str.lower():
                             region_improvements.append(f"  • {cat} Size: Grew by {gained}! (from {old_count_str} to {new_count_str})")
                         else:
                             region_improvements.append(f"  • {cat} Tiles: Collected {gained} new tiles! (from {old_count_str} to {new_count_str})")
                             
-                # --- CHECK B: Did you climb the leaderboard? ---
                 new_rank_val = parse_number(new_rank_str)
                 old_rank_val = parse_number(old_rank_str)
                 
@@ -103,29 +96,37 @@ def compare_rankings():
                 elif new_rank_val is not None and old_rank_val is None:
                     region_improvements.append(f"  • {cat} Rank: NEW RANKING! You are now {new_rank_str}")
 
-            # If any improvements were found, add the region block to the log
             if region_improvements:
                 improvements_found = True
                 log_lines.append(f"🏆 {region}")
                 for imp in region_improvements:
                     log_lines.append(imp)
-                log_lines.append("") # Empty line for spacing
+                log_lines.append("")
 
     if not improvements_found:
         log_lines.append("No ranking or tile improvements found between these two files.\n")
 
-    # Combine all lines into one final text block
     final_output = "\n".join(log_lines) + "\n"
-    
-    # 4. PRINT TO TERMINAL AND SAVE TO FILE
     print(final_output)
     
-    # Using 'a' mode appends the text to the bottom of the file instead of overwriting it
     log_file_path = "squadrats_progress_log.txt"
     with open(log_file_path, mode='a', encoding='utf-8') as f:
         f.write(final_output)
         
     print(f"(Progress successfully appended to {log_file_path})")
+
+    # --- 4. CLEAN UP OLD FILES ---
+    print("\nArchiving older CSV files...")
+    os.makedirs("data", exist_ok=True)
+    
+    # files[2:] grabs everything EXCEPT the two newest files
+    for old_csv in files[2:]:
+        destination = os.path.join("data", old_csv)
+        # Overwrite if it already exists in the archive
+        if os.path.exists(destination):
+            os.remove(destination)
+        shutil.move(old_csv, destination)
+        print(f"Moved {old_csv} to data/")
 
 if __name__ == "__main__":
     compare_rankings()
