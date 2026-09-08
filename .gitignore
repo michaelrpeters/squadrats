@@ -1,0 +1,6 @@
+env/
+data/
+kmls/
+old/
+*.mhtml
+.DS_Store

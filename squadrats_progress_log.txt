@@ -1,0 +1,77 @@
+==================================================
+Date: 2026-09-03 18:53:43
+Comparing New: squadrats_rankings_2026-09-03_175944.csv
+Against Old:   squadrats_rankings_2026-09-03_102213.csv
+--------------------------------------------------
+🏆 Earth
+  • Squadratinhos Tiles: Collected 12 new tiles! (from 87,556 to 87,568)
+  • Squadratinhos Rank: Climbed 1 spot(s) (from #8081 to #8080)
+
+🏆 France
+  • Squadratinhos Tiles: Collected 3 new tiles! (from 23,816 to 23,819)
+
+🏆 Auvergne-Rhône-Alpes
+  • Squadratinhos Tiles: Collected 3 new tiles! (from 9,011 to 9,014)
+
+🏆 Switzerland
+  • Squadratinhos Tiles: Collected 11 new tiles! (from 6,951 to 6,962)
+
+🏆 Lake Geneva
+  • Squadratinhos Tiles: Collected 11 new tiles! (from 6,055 to 6,066)
+
+🏆 Wallonia
+  • Übersquadrat Rank: Climbed 1 spot(s) (from #7793 to #7792)
+
+==================================================
+Date: 2026-09-04 12:54:34
+Comparing New: squadrats_rankings_2026-09-04_125329.csv
+Against Old:   squadrats_rankings_2026-09-03_175944.csv
+--------------------------------------------------
+🏆 Earth
+  • Squadratinhos Tiles: Collected 11 new tiles! (from 87,568 to 87,579)
+
+🏆 France
+  • Squadratinhos Tiles: Collected 11 new tiles! (from 23,819 to 23,830)
+
+🏆 Auvergne-Rhône-Alpes
+  • Squadratinhos Tiles: Collected 11 new tiles! (from 9,014 to 9,025)
+  • Squadratinhos Rank: Climbed 1 spot(s) (from #2483 to #2482)
+
+🏆 South Holland
+  • Squadrats Rank: Climbed 1 spot(s) (from #2005 to #2004)
+  • Squadratinhos Rank: Climbed 1 spot(s) (from #1848 to #1847)
+
+==================================================
+Date: 2026-09-05 09:10:52
+Comparing New: squadrats_rankings_2026-09-05_090920.csv
+Against Old:   squadrats_rankings_2026-09-04_130601.csv
+--------------------------------------------------
+🏆 Earth
+  • Squadratinhos Tiles: Collected 4 new tiles! (from 87,579 to 87,583)
+
+🏆 France
+  • Squadratinhos Tiles: Collected 4 new tiles! (from 23,830 to 23,834)
+
+🏆 Auvergne-Rhône-Alpes
+  • Squadratinhos Tiles: Collected 4 new tiles! (from 9,025 to 9,029)
+
+==================================================
+Date: 2026-09-08 13:17:20
+Comparing New: squadrats_rankings_2026-09-08_131519.csv
+Against Old:   squadrats_rankings_2026-09-05_090920.csv
+--------------------------------------------------
+🏆 Earth
+  • Squadratinhos Tiles: Collected 9 new tiles! (from 87,583 to 87,592)
+  • Yardinho Tiles: Collected 15 new tiles! (from 438 to 453)
+  • Yardinho Rank: Climbed 619 spot(s) (from #23253 to #22634)
+
+🏆 France
+  • Squadratinhos Tiles: Collected 9 new tiles! (from 23,834 to 23,843)
+  • Yardinho Tiles: Collected 15 new tiles! (from 438 to 453)
+  • Yardinho Rank: Climbed 76 spot(s) (from #2511 to #2435)
+
+🏆 Auvergne-Rhône-Alpes
+  • Squadratinhos Tiles: Collected 9 new tiles! (from 9,029 to 9,038)
+  • Yardinho Tiles: Collected 15 new tiles! (from 438 to 453)
+  • Yardinho Rank: Climbed 20 spot(s) (from #610 to #590)
+
